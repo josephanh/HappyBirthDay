@@ -145,7 +145,7 @@
     document.getElementById("hour").innerText = addLeadingZero(hours);
     document.getElementById("minute").innerText = addLeadingZero(minutes);
     document.getElementById("second").innerText = addLeadingZero(seconds);
-    if (seconds <= 11 && seconds >= 0) {
+    if (seconds <= 11 && seconds >= 0 && minutes <= 0 && hours <= 0) {
       document.querySelector('#audio2').play();
     }
     if (hours <= 0 && minutes <= 0 && seconds <= 0) {
