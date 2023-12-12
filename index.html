@@ -155,8 +155,10 @@
     }
     if(seconds >= 0 && seconds % 2 == 0) {
       document.querySelector('#oclockOod').play();
+      document.querySelector('#oclockOod').volume = 0.5;
     } else {
       document.querySelector('#oclockEvt').play();
+      document.querySelector('#oclockEvt').volume = 0.5;
     }
   }, 1000);
 
