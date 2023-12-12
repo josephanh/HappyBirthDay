@@ -122,8 +122,8 @@
       </div>
     </div>
     <audio src="audio/demnguoc.mp3" id="audio2" hidden></audio>
-    <audio src="audio/audio_oclock_0.mp3" id="oclock_0" hidden></audio>
-    <audio src="audio/audio_oclock_1.mp3" id="oclock_1" hidden></audio>
+    <audio src="audio/audio_oclock_0.mp3" id="oclockOod" hidden></audio>
+    <audio src="audio/audio_oclock_1.mp3" id="oclockEvt" hidden></audio>
     <audio src="audio/chucmungsinhnhat.mp3" id="audio" loop hidden></audio>
   </main>
 </body>
@@ -154,9 +154,9 @@
       document.querySelector('#backdrop-happy').innerHTML = `<div><button class='glowing-btn' onclick='onClckButton()'><span class='glowing-txt'>C<span class='faulty-letter'>L</span>ICK</span></button></div>`
     }
     if(seconds >= 0 && seconds % 2 == 0) {
-      document.querySelector('#oclock_0').play();
+      document.querySelector('#oclockOod').play();
     } else {
-      document.querySelector('#oclock_1').play();
+      document.querySelector('#oclockEvt').play();
     }
   }, 1000);
 
