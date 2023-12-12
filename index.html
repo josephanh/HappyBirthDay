@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy BirthDay</title>
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/thiep.css">
+  <link rel="stylesheet" href="css/hinh.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Bubbles&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/count.css">
+  <script src="js/count.js"></script>
+
+  <style>
+    body {
+      background: rgb(2, 0, 36);
+      background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(6, 13, 53, 1) 39%, rgba(9, 10, 36, 1) 100%);
+    }
+
+    .wrapper {
+      height: auto !important;
+      height: 100%;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    h1 {
+      margin-top: 100px;
+      color: #FFFFFF;
+      text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+      margin-bottom: 5px;
+      font-size: 70px;
+      letter-spacing: -4px;
+    }
+
+    .main {
+      float: left;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .header {
+      position: relative;
+    }
+
+    a {
+      text-decoration: none;
+      color: #1DF803;
+    }
+
+    .main h1 {
+      padding: 20px 50px;
+      float: left;
+      width: 100%;
+      font-size: 40px;
+      box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      font-weight: 100;
+      margin: 0;
+      padding-top: 25px;
+      font-family: Arial;
+      letter-spacing: 2px;
+
+    }
+
+    canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      position: fixed;
+    }
+
+
+    canvas.flare {
+      opacity: 0.5;
+    }
+
+
+    .snowWindPower {
+      padding: 10px;
+      width: 90px;
+      border: none;
+      border-radius: 3px;
+      font-size: 33px;
+      background: rgba(0, 0, 0, 0.31);
+      color: white;
+    }
+
+    main {
+      position: absolute;
+      z-index: 100;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas width="100%" height="100%" class="flare"></canvas>
+  <canvas width="100%" height="100%" class="snow"></canvas>
+  <canvas id="canvas"></canvas>
+  <canvas id="canvas-fl"></canvas>
+  <main>
+    <div id="count-down">
+      <div id="backdrop-happy">
+        <span id="hour" class="odometer"></span>
+        <span>:</span>
+        <span id="minute" class="odometer"></span>
+        <span>:</span>
+        <span id="second" class="odometer"></span>
+      </div>
+    </div>
+    <audio src="audio/demnguoc.mp3" id="audio2" hidden></audio>
+    <audio src="audio/chucmungsinhnhat.mp3" id="audio" loop hidden></audio>
+  </main>
+</body>
+
+<script>
+</script>
+</html>
+<script>
+  function addLeadingZero(number) {
+    return number < 10 ? '0' + number : number;
+  }
+  setInterval(() => {
+    var targetDate = new Date("2023-12-13T00:00:00");
+    var currentDate = new Date();
+    var timeRemaining = targetDate - currentDate;
+    var secondsRemaining = Math.floor(timeRemaining / 1000);
+    var hours = Math.floor((secondsRemaining % (24 * 60 * 60)) / 3600);
+    var minutes = Math.floor((secondsRemaining % 3600) / 60);
+    var seconds = secondsRemaining % 60;
+
+    document.getElementById("hour").innerText = addLeadingZero(hours);
+    document.getElementById("minute").innerText = addLeadingZero(minutes);
+    document.getElementById("second").innerText = addLeadingZero(seconds);
+    if (seconds <= 11 && seconds >= 0) {
+      document.querySelector('#audio2').play();
+    }
+    if (hours <= 0 && minutes <= 0 && seconds <= 0) {
+      document.querySelector('#backdrop-happy').innerHTML = `<div><button class='glowing-btn' onclick='onClckButton()'><span class='glowing-txt'>C<span class='faulty-letter'>L</span>ICK</span></button></div>`
+    }
+  }, 1000);
+
+  function onClckButton() {
+    location.href = 'index.html';
+      document.querySelector('#audio').play();
+      document.querySelector('#audio').volume = 0.5;
+  }
+</script>
