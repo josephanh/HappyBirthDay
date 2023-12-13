@@ -136,7 +136,7 @@
     return number < 10 ? '0' + number : number;
   }
   setInterval(() => {
-    var targetDate = new Date("2023-12-13T00:00:00");
+    var targetDate = new Date("2023-12-13T07:54:00");
     var currentDate = new Date();
     var timeRemaining = targetDate - currentDate;
     var secondsRemaining = Math.floor(timeRemaining / 1000);
@@ -155,10 +155,10 @@
     }
     if(seconds >= 0 && seconds % 2 == 0) {
       document.querySelector('#oclockOod').play();
-      document.querySelector('#oclockOod').volume = 0.3;
+      document.querySelector('#oclockOod').volume = 0.5;
     } else {
       document.querySelector('#oclockEvt').play();
-      document.querySelector('#oclockEvt').volume = 0.3;
+      document.querySelector('#oclockEvt').volume = 0.5;
     }
   }, 1000);
 
