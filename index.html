@@ -150,7 +150,7 @@
     document.getElementById("hour").innerText = addLeadingZero(hours);
     document.getElementById("minute").innerText = addLeadingZero(minutes);
     document.getElementById("second").innerText = addLeadingZero(seconds);
-    if (day !== 0) document.getElementById("day").innerText = addLeadingZero(day) + ":";
+    if (days !== 0) document.getElementById("day").innerText = addLeadingZero(days) + ":";
     if (seconds <= 11 && seconds >= 0 && minutes <= 0 && hours <= 0) {
       document.querySelector('#audio2').play();
     }
