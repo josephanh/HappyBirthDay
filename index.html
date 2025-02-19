@@ -114,6 +114,7 @@
   <main>
     <div id="count-down">
       <div id="backdrop-happy">
+        <span id="day" class="odometer"></span>
         <span id="hour" class="odometer"></span>
         <span>:</span>
         <span id="minute" class="odometer"></span>
@@ -140,13 +141,16 @@
     var currentDate = new Date();
     var timeRemaining = targetDate - currentDate;
     var secondsRemaining = Math.floor(timeRemaining / 1000);
+    var days = Math.floor(secondsRemaining / (24 * 60 * 60));
     var hours = Math.floor((secondsRemaining % (24 * 60 * 60)) / 3600);
     var minutes = Math.floor((secondsRemaining % 3600) / 60);
     var seconds = secondsRemaining % 60;
 
+
     document.getElementById("hour").innerText = addLeadingZero(hours);
     document.getElementById("minute").innerText = addLeadingZero(minutes);
     document.getElementById("second").innerText = addLeadingZero(seconds);
+    if (day !== 0) document.getElementById("day").innerText = addLeadingZero(day) + ":";
     if (seconds <= 11 && seconds >= 0 && minutes <= 0 && hours <= 0) {
       document.querySelector('#audio2').play();
     }
